@@ -1,0 +1,20 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Swagger documentacion",
+    "description": "Documentacion de Swagger",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/login": {
+      "post": {
+        "description": "Inicio de sesión",
+        "responses": {
+          "200": {
+            "description": "Credenciales correctas"
+          }
+        }
+      }
+    }
+  }
+}
