@@ -23,6 +23,18 @@ app.post("/signup", (req, res) => {
     });
 });
 
+
+app.get("/users/:id", (req, res) => {
+    console.log(req.params.id);
+    res.json({
+        id: 1, 
+        firstName: "Hector",
+        lastName: "Alvarez",
+        email: "hector@gmail.com",
+        password: "$7dsfs89"
+    })
+})
+
 app.listen(9000, () => {
     console.log("Escuchando sobre el puerto 9000");
 });

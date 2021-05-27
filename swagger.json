@@ -45,10 +45,82 @@
           "201": {
             "description": "Se ha registrado al usuario en el sistema"
           }
-        }
+        },
+        "security": [
+          {
+            "jwt_token": [
+          "write:login",
+          "read:login"
+        ]
       }
+    ]
+    }
+    },
+    "/users": {
+      "get": {
+      "tags": ["Users"]
+      },
+     "post": {
+      "tags": ["Users"]
     }
   },
+  "/users/{id}": {
+    "get": {
+      "tags": ["Users"],
+      "parameters": [
+        {
+        "name": "id",
+        "in": "path",
+        "description": "ID del ususario",
+        "required": true,
+        "type": "integer",
+        "format": "int64"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Obtener un usuario"
+        }
+      }
+    },
+    "put": {
+      "tags": ["Users"],
+      "parameters": [
+        {
+        "name": "id",
+        "in": "path",
+        "description": "ID del ususario",
+        "required": true,
+        "type": "integer",
+        "format": "int64"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Obtener un usuario"
+        }
+      }
+    },
+    "delete":{
+    "tags": ["Users"],
+    "parameters": [
+      {
+      "name": "id",
+      "in": "path",
+      "description": "ID del ususario",
+      "required": true,
+      "type": "integer",
+      "format": "int64"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Obtener un usuario"
+      }
+    }
+    }
+  }
+},
   "components": {
     "schemas": {
       "Login": {
