@@ -8,12 +8,93 @@
   "paths": {
     "/login": {
       "post": {
+        "tags": ["Auth"],
         "description": "Inicio de sesión",
+        "requestBody": {
+          "description": "Credenciales de acceso",
+          "content": {
+            "application/json": {
+              "schema":{ 
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Credenciales correctas"
           }
         }
+      }
+    },
+    "/signup": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Registro de usuario",
+        "requestBody": {
+          "description": "Datos de usuarios",
+          "content": {
+            "application/json": {
+              "schema":{ 
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Se ha registrado al usuario en el sistema"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Login": {
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "password"
+        ],
+        "properties": {
+          "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+    },
+    "securitySchemes": {
+      "jwt token": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
       }
     }
   }
